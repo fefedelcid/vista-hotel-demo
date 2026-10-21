@@ -1,781 +1,387 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand Vista Hotel | Lujo & Confort</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            50: '#fbf8f3',
-                            100: '#f4ece1',
-                            200: '#e6d4bc',
-                            300: '#d5b994',
-                            400: '#c59f6d',
-                            500: '#b0854d',
-                            600: '#966d3e',
-                            700: '#795431',
-                            800: '#62432a',
-                            900: '#523724',
-                            950: '#2c1c12',
-                        },
-                        sand: {
-                            50: '#faf9f6',
-                            100: '#f2efe9',
-                            200: '#e5dfd4',
-                            800: '#38342d',
-                            900: '#24211c',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        /* Custom smooth background overlay for hero */
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(36, 33, 28, 0.4) 0%, rgba(36, 33, 28, 0.8) 100%);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grand Vista Hotel | Lujo & Confort</title>
+<meta name="description" content="Hotel boutique y spa 5 estrellas con vistas panorámicas al valle, gastronomía de autor y servicio personalizado. Reserve directo.">
+<meta name="theme-color" content="#24211c">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{
+gold:{50:'#fbf8f3',100:'#f4ece1',200:'#e6d4bc',300:'#d5b994',400:'#c59f6d',500:'#b0854d',600:'#966d3e',700:'#795431',800:'#62432a',900:'#523724',950:'#2c1c12'},
+sand:{50:'#faf9f6',100:'#f2efe9',200:'#e5dfd4',300:'#d3cbbb',400:'#b9b0a0',500:'#6b6356',600:'#504a3f',700:'#403b32',800:'#38342d',900:'#24211c',950:'#17150f'}},
+fontFamily:{serif:['Playfair Display','Georgia','serif'],sans:['Plus Jakarta Sans','system-ui','sans-serif']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Grand Vista Hotel","starRating":{"@type":"Rating","ratingValue":"5"},"telephone":"+54 9 261 555-0192","email":"reservas@grandvistahotel.com","address":{"@type":"PostalAddress","streetAddress":"Ruta Panorámica Km 14.5","addressLocality":"Valle Alto","addressCountry":"AR"}}</script>
+<style>
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+section[id],footer[id]{scroll-margin-top:5rem}
+.hero-gradient{background:linear-gradient(180deg,rgba(23,21,15,.55) 0%,rgba(23,21,15,.85) 100%)}
+input,select{color-scheme:light}.dark-field input,.dark-field select{color-scheme:dark}
+input,select,button,a,summary{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid #c59f6d;outline-offset:2px}
+details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+details[open] .chev{transform:rotate(180deg)}
+.sheet{animation:up .25s ease-out}@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body class="bg-sand-50 text-sand-900 selection:bg-gold-500 selection:text-white">
 
-    <!-- 1. Navbar Fija -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-sand-900/80 backdrop-blur-md text-white border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-2">
-                <i data-lucide="crown" class="w-8 h-8 text-gold-400"></i>
-                <span class="font-serif text-2xl tracking-wider font-semibold">GRAND VISTA</span>
-            </a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-                <a href="#comodidades" class="hover:text-gold-400 transition-colors">Comodidades</a>
-                <a href="#habitaciones" class="hover:text-gold-400 transition-colors">Habitaciones</a>
-                <a href="#experiencias" class="hover:text-gold-400 transition-colors">Experiencias</a>
-                <a href="#testimonios" class="hover:text-gold-400 transition-colors">Reseñas</a>
-                <a href="#contacto" class="hover:text-gold-400 transition-colors">Contacto</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <button onclick="openBookingModal()" class="bg-gold-500 hover:bg-gold-600 text-sand-950 font-semibold px-5 py-2.5 rounded-full transition-all shadow-lg hover:shadow-gold-500/20 text-sm flex items-center space-x-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>Reservar Ahora</span>
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden bg-sand-900 border-t border-white/10 px-6 py-4 space-y-3">
-            <a href="#comodidades" class="block text-white hover:text-gold-400 py-1">Comodidades</a>
-            <a href="#habitaciones" class="block text-white hover:text-gold-400 py-1">Habitaciones</a>
-            <a href="#experiencias" class="block text-white hover:text-gold-400 py-1">Experiencias</a>
-            <a href="#testimonios" class="block text-white hover:text-gold-400 py-1">Reseñas</a>
-            <a href="#contacto" class="block text-white hover:text-gold-400 py-1">Contacto</a>
-        </div>
-    </header>
-
-    <!-- 2. Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center text-white pt-20">
-        <!-- Imagen de fondo con overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80" alt="Grand Vista Hotel Exterior" class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-
-        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center mt-10">
-            <span class="inline-block py-1 px-4 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 text-xs sm:text-sm uppercase tracking-widest mb-6 font-medium backdrop-blur-sm">Hotel Boutique & Spa • 5 Estrellas</span>
-            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                Donde el lujo se encuentra con la <span class="text-gold-400 italic">naturaleza</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-sand-200 max-w-2xl mx-auto font-light mb-12">
-                Experimente una estadía inolvidable con vistas panorámicas incomparables, gastronomía de autor y servicio personalizado.
-            </p>
-
-            <!-- Selector Rápido de Búsqueda -->
-            <div class="bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-2xl border border-white/20 max-w-4xl mx-auto shadow-2xl">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                    <div class="bg-sand-900/60 p-3 rounded-xl border border-white/10">
-                        <label class="block text-xs uppercase tracking-wider text-gold-300 font-semibold mb-1">Llegada / Salida</label>
-                        <div class="flex items-center space-x-2 text-white">
-                            <i data-lucide="calendar" class="w-5 h-5 text-gold-400"></i>
-                            <input type="text" id="quick-dates" value="20 Oct - 25 Oct" class="bg-transparent border-none text-sm focus:outline-none w-full cursor-pointer" readonly onclick="openBookingModal()">
-                        </div>
-                    </div>
-                    <div class="bg-sand-900/60 p-3 rounded-xl border border-white/10">
-                        <label class="block text-xs uppercase tracking-wider text-gold-300 font-semibold mb-1">Huéspedes</label>
-                        <div class="flex items-center space-x-2 text-white">
-                            <i data-lucide="users" class="w-5 h-5 text-gold-400"></i>
-                            <select id="quick-guests" class="bg-transparent border-none text-sm focus:outline-none w-full text-white cursor-pointer">
-                                <option value="1" class="bg-sand-900">1 Adulto</option>
-                                <option value="2" selected class="bg-sand-900">2 Adultos (1 Habitación)</option>
-                                <option value="3" class="bg-sand-900">3 Huéspedes</option>
-                                <option value="4" class="bg-sand-900">4 Huéspedes (Familiar)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <button onclick="openBookingModal()" class="w-full h-full bg-gold-500 hover:bg-gold-600 text-sand-950 font-bold py-3 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2 group">
-                            <span>Consultar Disponibilidad</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Sección de Comodidades y Beneficios -->
-    <section id="comodidades" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-600 text-sm font-semibold tracking-widest uppercase mb-2 block">Experiencia Exclusiva</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-sand-900">Comodidades de Primer Nivel</h2>
-                <div class="w-20 h-0.5 bg-gold-400 mx-auto mt-4"></div>
-                <p class="text-sand-600 mt-4 text-base sm:text-lg">Cada detalle ha sido diseñado para garantizar su máximo confort y bienestar durante su estadía.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Comodidad 1 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="sparkles" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Spa & Bienestar</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Disfrute de masajes relajantes, sauna finlandesa y tratamientos faciales con productos orgánicos locales.</p>
-                </div>
-                <!-- Comodidad 2 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="waves" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Piscina Climatizada Inﬁnity</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Piscina panorámica con temperatura controlada todo el año y vista directa al valle montañoso.</p>
-                </div>
-                <!-- Comodidad 3 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="utensils" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Gastronomía Gourmet</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Restaurante de autor a cargo del Chef Ejecutivo, con cava subterránea y selección de vinos de altura.</p>
-                </div>
-                <!-- Comodidad 4 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="wifi" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Conectividad Alta Velocidad</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Wi-Fi simétrico de alta velocidad en todo el predio, ideal para nómades digitales y ejecutivos.</p>
-                </div>
-                <!-- Comodidad 5 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="car" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Traslado VIP al Aeropuerto</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Servicio de transfer privado con chofer bilingüe disponible las 24 horas bajo previo aviso.</p>
-                </div>
-                <!-- Comodidad 6 -->
-                <div class="group bg-sand-50 p-8 rounded-2xl border border-sand-200 hover:border-gold-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all">
-                        <i data-lucide="shield-check" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-sand-900 mb-3">Atención Personalizada 24/7</h3>
-                    <p class="text-sand-600 text-sm leading-relaxed">Conserjería exclusiva dispuesta a cumplir cualquier solicitud y organizar sus excursiones privadas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Tipos de Habitaciones (Catálogo Interactivo) -->
-    <section id="habitaciones" class="py-24 bg-sand-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-600 text-sm font-semibold tracking-widest uppercase mb-2 block">Alojamientos Exclusivos</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-sand-900">Habitaciones & Suites</h2>
-                <div class="w-20 h-0.5 bg-gold-400 mx-auto mt-4"></div>
-                <p class="text-sand-600 mt-4 text-base sm:text-lg">Espacios amplios, diseño minimalista sofisticado y amenidades de lujo en cada rincón.</p>
-            </div>
-
-            <!-- Filtros de Categoría -->
-            <div class="flex justify-center mb-12 space-x-2 sm:space-x-4">
-                <button onclick="filterRooms('all')" id="filter-btn-all" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-sand-950 shadow-md">Todas</button>
-                <button onclick="filterRooms('deluxe')" id="filter-btn-deluxe" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-sand-700 hover:bg-sand-200 border border-sand-300">Suite Deluxe</button>
-                <button onclick="filterRooms('superior')" id="filter-btn-superior" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-sand-700 hover:bg-sand-200 border border-sand-300">Doble Superior</button>
-                <button onclick="filterRooms('penthouse')" id="filter-btn-penthouse" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-sand-700 hover:bg-sand-200 border border-sand-300">Penthouse</button>
-            </div>
-
-            <!-- Grid de Habitaciones -->
-            <div id="rooms-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Habitación 1 -->
-                <div class="room-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="deluxe">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Suite Deluxe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-sand-900/80 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-semibold">
-                            $280 USD / noche
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center space-x-4 text-xs text-sand-500 mb-2">
-                                <span class="flex items-center"><i data-lucide="maximize" class="w-3.5 h-3.5 mr-1"></i> 45 m²</span>
-                                <span class="flex items-center"><i data-lucide="users" class="w-3.5 h-3.5 mr-1"></i> 2 Huéspedes</span>
-                                <span class="flex items-center"><i data-lucide="bed" class="w-3.5 h-3.5 mr-1"></i> King Size</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-sand-900 mb-2">Suite Deluxe con Vista al Valle</h3>
-                            <p class="text-sand-600 text-sm leading-relaxed mb-6">Equipada con balcón privado, tina de hidromasaje y cafetera Nespresso de cortesía.</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-sand-100">
-                            <button onclick="openRoomDetails('Suite Deluxe', 280, '45 m²', '2 Huéspedes', 'Balcón privado, hidromasaje, cafetera Nespresso, TV 65 pulgadas 4K.', 'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80')" class="text-gold-600 hover:text-gold-700 font-semibold text-sm flex items-center space-x-1">
-                                <span>Ver detalles</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                            <button onclick="selectRoomForBooking('Suite Deluxe', 280)" class="bg-sand-900 hover:bg-gold-500 hover:text-sand-950 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all">
-                                Reservar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Habitación 2 -->
-                <div class="room-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="superior">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Doble Superior" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-sand-900/80 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-semibold">
-                            $190 USD / noche
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center space-x-4 text-xs text-sand-500 mb-2">
-                                <span class="flex items-center"><i data-lucide="maximize" class="w-3.5 h-3.5 mr-1"></i> 32 m²</span>
-                                <span class="flex items-center"><i data-lucide="users" class="w-3.5 h-3.5 mr-1"></i> 2 Huéspedes</span>
-                                <span class="flex items-center"><i data-lucide="bed" class="w-3.5 h-3.5 mr-1"></i> Queen Size</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-sand-900 mb-2">Habitación Doble Superior</h3>
-                            <p class="text-sand-600 text-sm leading-relaxed mb-6">Diseño cálido con maderas nobles, escritorio de trabajo ergonómico y baño en mármol.</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-sand-100">
-                            <button onclick="openRoomDetails('Doble Superior', 190, '32 m²', '2 Huéspedes', 'Escritorio ergonómico, baño de mármol, amenities orgánicos, vista al jardín.', 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80')" class="text-gold-600 hover:text-gold-700 font-semibold text-sm flex items-center space-x-1">
-                                <span>Ver detalles</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                            <button onclick="selectRoomForBooking('Habitación Doble Superior', 190)" class="bg-sand-900 hover:bg-gold-500 hover:text-sand-950 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all">
-                                Reservar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Habitación 3 -->
-                <div class="room-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="penthouse">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Penthouse Grand Vista" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-sand-900/80 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-semibold">
-                            $520 USD / noche
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center space-x-4 text-xs text-sand-500 mb-2">
-                                <span class="flex items-center"><i data-lucide="maximize" class="w-3.5 h-3.5 mr-1"></i> 95 m²</span>
-                                <span class="flex items-center"><i data-lucide="users" class="w-3.5 h-3.5 mr-1"></i> 4 Huéspedes</span>
-                                <span class="flex items-center"><i data-lucide="bed" class="w-3.5 h-3.5 mr-1"></i> 2 King Beds</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-sand-900 mb-2">Penthouse Imperial</h3>
-                            <p class="text-sand-600 text-sm leading-relaxed mb-6">La máxima expresión de lujo: terraza privada con jacuzzi exterior, living integrado y mayordomo personal.</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-sand-100">
-                            <button onclick="openRoomDetails('Penthouse Imperial', 520, '95 m²', '4 Huéspedes', 'Terraza con jacuzzi exterior, sala de estar, mayordomo dedicado, vinos de bienvenida.', 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80')" class="text-gold-600 hover:text-gold-700 font-semibold text-sm flex items-center space-x-1">
-                                <span>Ver detalles</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                            <button onclick="selectRoomForBooking('Penthouse Imperial', 520)" class="bg-sand-900 hover:bg-gold-500 hover:text-sand-950 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all">
-                                Reservar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Experiencias / Actividades -->
-    <section id="experiencias" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-600 text-sm font-semibold tracking-widest uppercase mb-2 block">Momentos Únicos</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-sand-900">Experiencias Grand Vista</h2>
-                <div class="w-20 h-0.5 bg-gold-400 mx-auto mt-4"></div>
-                <p class="text-sand-600 mt-4 text-base sm:text-lg">Diseñamos actividades exclusivas para que descubra la esencia del destino con el más alto nivel de confort.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Exp 1 -->
-                <div class="relative h-96 rounded-2xl overflow-hidden group shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Cata de Vinos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-sand-950 via-sand-950/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Enología</span>
-                        <h3 class="font-serif text-2xl font-bold mt-1 mb-2">Cata Privada en Cava</h3>
-                        <p class="text-sand-200 text-sm font-light">Degustación guiada por nuestro sommelier experto con etiquetas de reserva exclusiva.</p>
-                    </div>
-                </div>
-                <!-- Exp 2 -->
-                <div class="relative h-96 rounded-2xl overflow-hidden group shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Senderismo VIP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-sand-950 via-sand-950/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Aventura & Naturaleza</span>
-                        <h3 class="font-serif text-2xl font-bold mt-1 mb-2">Trekking y Picnic en la Montaña</h3>
-                        <p class="text-sand-200 text-sm font-light">Excursión privada con guía especializado y almuerzo gourmet en paisajes vírgenes.</p>
-                    </div>
-                </div>
-                <!-- Exp 3 -->
-                <div class="relative h-96 rounded-2xl overflow-hidden group shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Yoga y Relajación" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-sand-950 via-sand-950/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Bienestar Holístico</span>
-                        <h3 class="font-serif text-2xl font-bold mt-1 mb-2">Yoga al Amanecer</h3>
-                        <p class="text-sand-200 text-sm font-light">Sesiones privadas frente al valle para revitalizar cuerpo y mente en plena armonía.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Testimonios de Huéspedes -->
-    <section id="testimonios" class="py-24 bg-sand-900 text-white relative overflow-hidden">
-        <div class="absolute -right-20 -top-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 text-sm font-semibold tracking-widest uppercase mb-2 block">Opiniones Verificadas</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Lo que dicen nuestros huéspedes</h2>
-                <div class="w-20 h-0.5 bg-gold-400 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonio 1 -->
-                <div class="bg-sand-800/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-1 text-gold-400 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sand-200 text-sm leading-relaxed italic mb-6">"Una experiencia verdaderamente excepcional. El servicio de conserjería superó nuestras expectativas y la vista desde la Suite Deluxe es imborrable."</p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-4 border-t border-white/10">
-                        <div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center font-serif font-bold text-sand-950 text-lg">
-                            CM
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Carlos M.</h4>
-                            <p class="text-xs text-gold-300">Buenos Aires, Argentina</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonio 2 -->
-                <div class="bg-sand-800/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-1 text-gold-400 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sand-200 text-sm leading-relaxed italic mb-6">"El spa y la piscina infinity son de otro planeta. La comida del restaurante principal es de nivel internacional. Volveremos sin dudas."</p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-4 border-t border-white/10">
-                        <div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center font-serif font-bold text-sand-950 text-lg">
-                            SL
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Sofía L.</h4>
-                            <p class="text-xs text-gold-300">Santiago, Chile</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonio 3 -->
-                <div class="bg-sand-800/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-1 text-gold-400 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sand-200 text-sm leading-relaxed italic mb-6">"Ideal para desconectar. La atención al detalle es impecable y la ubicación permite disfrutar de una paz absoluta. 10 de 10."</p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-4 border-t border-white/10">
-                        <div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center font-serif font-bold text-sand-950 text-lg">
-                            FR
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Federico R.</h4>
-                            <p class="text-xs text-gold-300">Madrid, España</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Footer Completo -->
-    <footer id="contacto" class="bg-sand-950 text-gold-400 pt-16 pb-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Col 1: Brand -->
-                <div>
-                    <div class="flex items-center space-x-2 mb-6">
-                        <i data-lucide="crown" class="w-7 h-7 text-gold-400"></i>
-                        <span class="font-serif text-xl tracking-wider font-semibold">GRAND VISTA</span>
-                    </div>
-                    <p class="text-sand-400 text-sm leading-relaxed mb-6">
-                        Un refugio de lujo y tranquilidad diseñado para superar las expectativas de los huéspedes más exigentes.
-                    </p>
-                    <div class="flex space-x-4 text-gold-400">
-                        <a href="#" class="w-10 h-10 rounded-full bg-sand-900 flex items-center justify-center hover:bg-gold-500 hover:text-sand-950 transition-colors"><i data-lucide="camera" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-sand-900 flex items-center justify-center hover:bg-gold-500 hover:text-sand-950 transition-colors"><i data-lucide="share-2" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-sand-900 flex items-center justify-center hover:bg-gold-500 hover:text-sand-950 transition-colors"><i data-lucide="user" class="w-5 h-5"></i></a>
-                    </div>
-                </div>
-
-                <!-- Col 2: Enlaces -->
-                <div>
-                    <h4 class="font-serif text-lg font-semibold mb-6 text-gold-300">Enlaces Rápidos</h4>
-                    <ul class="space-y-3 text-sm text-sand-400">
-                        <li><a href="#comodidades" class="hover:text-gold-400 transition-colors">Comodidades</a></li>
-                        <li><a href="#habitaciones" class="hover:text-gold-400 transition-colors">Habitaciones & Suites</a></li>
-                        <li><a href="#experiencias" class="hover:text-gold-400 transition-colors">Experiencias</a></li>
-                        <li><a href="#testimonios" class="hover:text-gold-400 transition-colors">Reseñas de Huéspedes</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Contacto -->
-                <div>
-                    <h4 class="font-serif text-lg font-semibold mb-6 text-gold-300">Contacto Directo</h4>
-                    <ul class="space-y-3 text-sm text-sand-400">
-                        <li class="flex items-start space-x-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i>
-                            <span>Ruta Panorámica Km 14.5, Valle Alto, Argentina</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-gold-400 shrink-0"></i>
-                            <span>+54 9 261 555-0192</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-gold-400 shrink-0"></i>
-                            <span>reservas@grandvistahotel.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Col 4: Newsletter -->
-                <div>
-                    <h4 class="font-serif text-lg font-semibold mb-6 text-gold-300">Newsletter Exclusivo</h4>
-                    <p class="text-sand-400 text-sm mb-4">Suscríbase para recibir beneficios privados y tarifas preferenciales.</p>
-                    <form onsubmit="subscribeNewsletter(event)" class="space-y-3">
-                        <input type="email" id="newsletter-email" placeholder="Su correo electrónico" required class="w-full bg-sand-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400">
-                        <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-sand-950 font-semibold py-3 rounded-xl transition-all text-sm">Suscribirme</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-white/10 text-center text-xs text-sand-500 flex flex-col sm:flex-row items-center justify-between">
-                <p>&copy; 2026 Grand Vista Hotel Boutique. Todos los derechos reservados.</p>
-                <div class="space-x-4 mt-4 sm:mt-0">
-                    <a href="#" class="hover:text-gold-400">Política de Privacidad</a>
-                    <a href="#" class="hover:text-gold-400">Términos y Condiciones</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-    <!-- MODAL DE DETALLES DE HABITACIÓN -->
-    <div id="room-modal" class="fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
-            <button onclick="closeRoomModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-sand-900/60 hover:bg-sand-900 text-white rounded-full flex items-center justify-center transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div class="relative h-72">
-                <img id="modal-room-img" src="" alt="Habitación" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-sand-950/70 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white">
-                    <span id="modal-room-price" class="bg-gold-500 text-sand-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block"></span>
-                    <h3 id="modal-room-title" class="font-serif text-3xl font-bold"></h3>
-                </div>
-            </div>
-            <div class="p-8">
-                <div class="flex items-center space-x-6 text-sm text-sand-600 mb-6 pb-6 border-b border-sand-100">
-                    <span class="flex items-center"><i data-lucide="maximize" class="w-4 h-4 mr-2 text-gold-600"></i> <span id="modal-room-size"></span></span>
-                    <span class="flex items-center"><i data-lucide="users" class="w-4 h-4 mr-2 text-gold-600"></i> <span id="modal-room-guests"></span></span>
-                    <span class="flex items-center"><i data-lucide="bed" class="w-4 h-4 mr-2 text-gold-600"></i> Cama King/Queen</span>
-                </div>
-                <h4 class="font-serif font-bold text-sand-900 text-lg mb-2">Comodidades de la Suite</h4>
-                <p id="modal-room-desc" class="text-sand-600 text-sm leading-relaxed mb-8"></p>
-
-                <div class="flex space-x-4">
-                    <button onclick="closeRoomModal()" class="flex-1 bg-sand-100 hover:bg-sand-200 text-sand-800 font-semibold py-3.5 rounded-xl transition-all text-sm">Cerrar</button>
-                    <button onclick="bookFromModal()" class="flex-1 bg-gold-500 hover:bg-gold-600 text-sand-950 font-bold py-3.5 rounded-xl transition-all text-sm shadow-lg">Reservar Esta Habitación</button>
-                </div>
-            </div>
-        </div>
+<!-- Navbar -->
+<header class="fixed top-0 inset-x-0 z-40 bg-sand-950/95 backdrop-blur-md text-white border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+    <a href="#inicio" class="flex items-center gap-2 shrink-0" aria-label="Grand Vista, inicio">
+      <i data-lucide="crown" class="w-7 h-7 text-gold-400"></i>
+      <span class="font-serif text-lg sm:text-2xl tracking-wider font-semibold">GRAND VISTA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Principal">
+      <a href="#comodidades" class="hover:text-gold-300">Comodidades</a>
+      <a href="#habitaciones" class="hover:text-gold-300">Habitaciones</a>
+      <a href="#experiencias" class="hover:text-gold-300">Experiencias</a>
+      <a href="#testimonios" class="hover:text-gold-300">Reseñas</a>
+      <a href="#faq" class="hover:text-gold-300">Preguntas</a>
+      <a href="#contacto" class="hover:text-gold-300">Contacto</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="openBooking()" class="bg-gold-400 hover:bg-gold-300 text-sand-950 font-bold px-4 sm:px-5 py-2.5 rounded-full text-sm flex items-center gap-2 min-h-[44px]">
+        <i data-lucide="calendar" class="w-4 h-4"></i><span>Reservar</span>
+      </button>
+      <button id="menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
     </div>
+  </div>
+  <nav id="mobile-menu" class="hidden md:hidden bg-sand-950 border-t border-white/10 px-4 pb-3" aria-label="Móvil">
+    <a href="#comodidades" class="block py-3 border-b border-white/5">Comodidades</a>
+    <a href="#habitaciones" class="block py-3 border-b border-white/5">Habitaciones</a>
+    <a href="#experiencias" class="block py-3 border-b border-white/5">Experiencias</a>
+    <a href="#testimonios" class="block py-3 border-b border-white/5">Reseñas</a>
+    <a href="#faq" class="block py-3 border-b border-white/5">Preguntas frecuentes</a>
+    <a href="#contacto" class="block py-3">Contacto</a>
+  </nav>
+</header>
 
+<main>
+<!-- Hero -->
+<section id="inicio" class="relative min-h-[100svh] flex items-center text-white pt-24 pb-12">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1800&q=75" alt="Fachada del Grand Vista Hotel al atardecer" class="w-full h-full object-cover">
+    <div class="absolute inset-0 hero-gradient"></div>
+  </div>
+  <div class="relative max-w-5xl mx-auto px-4 text-center w-full">
+    <span class="inline-block py-1.5 px-4 rounded-full bg-sand-950/60 border border-gold-400/50 text-gold-200 text-xs sm:text-sm tracking-wide mb-5 font-medium">Hotel boutique y spa · 5 estrellas</span>
+    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-5" style="text-shadow:0 2px 20px rgba(0,0,0,.4)">Donde el lujo se encuentra con la <span class="text-gold-300 italic">naturaleza</span></h1>
+    <p class="text-base sm:text-xl text-sand-100 max-w-2xl mx-auto mb-8 sm:mb-10">Vistas panorámicas, gastronomía de autor y un servicio que se ocupa de cada detalle.</p>
 
-    <!-- 6. MODAL SIMULADOR DE RESERVA INTERACTIVO -->
-    <div id="booking-modal" class="fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl relative">
-            <div class="bg-sand-900 text-white p-6 sm:p-8 flex items-center justify-between">
-                <div>
-                    <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold">Simulador en Vivo</span>
-                    <h3 class="font-serif text-2xl font-bold">Reservar Estadía</h3>
-                </div>
-                <button onclick="closeBookingModal()" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-            
-            <form onsubmit="handleBookingSubmit(event)" class="p-6 sm:p-8 space-y-6">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-sand-600 mb-2">Seleccione Habitación / Suite</label>
-                    <select id="book-room-select" onchange="calculateTotal()" class="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-3 text-sm text-sand-900 focus:outline-none focus:border-gold-500">
-                        <option value="280">Suite Deluxe ($280 / noche)</option>
-                        <option value="190">Habitación Doble Superior ($190 / noche)</option>
-                        <option value="520">Penthouse Imperial ($520 / noche)</option>
-                    </select>
-                </div>
+    <form id="hero-form" class="dark-field bg-sand-950/75 backdrop-blur-md p-3 sm:p-5 rounded-2xl border border-white/20 max-w-4xl mx-auto grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto] text-left shadow-2xl">
+      <label class="block bg-white/10 rounded-xl p-3 border border-white/10"><span class="block text-xs font-semibold text-gold-200 mb-1">Llegada</span>
+        <input type="date" id="h-in" required class="bg-transparent text-white text-sm w-full focus:outline-none"></label>
+      <label class="block bg-white/10 rounded-xl p-3 border border-white/10"><span class="block text-xs font-semibold text-gold-200 mb-1">Salida</span>
+        <input type="date" id="h-out" required class="bg-transparent text-white text-sm w-full focus:outline-none"></label>
+      <label class="block bg-white/10 rounded-xl p-3 border border-white/10"><span class="block text-xs font-semibold text-gold-200 mb-1">Huéspedes</span>
+        <select id="h-guests" class="bg-transparent text-white text-sm w-full focus:outline-none">
+          <option value="1" class="text-sand-900">1 huésped</option><option value="2" selected class="text-sand-900">2 huéspedes</option>
+          <option value="3" class="text-sand-900">3 huéspedes</option><option value="4" class="text-sand-900">4 huéspedes</option></select></label>
+      <button type="submit" class="sm:col-span-2 lg:col-span-1 bg-gold-400 hover:bg-gold-300 text-sand-950 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 min-h-[52px]">Ver disponibilidad <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+    </form>
+  </div>
+</section>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-sand-600 mb-2">Fecha de Llegada</label>
-                        <input type="date" id="check-in-date" value="2026-11-01" onchange="calculateTotal()" required class="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-3 text-sm text-sand-900 focus:outline-none focus:border-gold-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-sand-600 mb-2">Fecha de Salida</label>
-                        <input type="date" id="check-out-date" value="2026-11-06" onchange="calculateTotal()" required class="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-3 text-sm text-sand-900 focus:outline-none focus:border-gold-500">
-                    </div>
-                </div>
+<!-- Beneficios de reservar directo -->
+<section class="bg-sand-950 text-white py-8" aria-label="Beneficios de reservar directo">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center font-serif text-lg text-gold-200 mb-6">Al reservar directo con el hotel</p>
+    <ul id="perks" class="grid grid-cols-1 sm:grid-cols-3 gap-5"></ul>
+  </div>
+</section>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-sand-600 mb-2">Nombre del Huésped</label>
-                        <input type="text" id="guest-name" placeholder="Ej. Juan Pérez" required class="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-3 text-sm text-sand-900 focus:outline-none focus:border-gold-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-sand-600 mb-2">Correo Electrónico</label>
-                        <input type="email" id="guest-email" placeholder="juan@example.com" required class="w-full bg-sand-50 border border-sand-200 rounded-xl px-4 py-3 text-sm text-sand-900 focus:outline-none focus:border-gold-500">
-                    </div>
-                </div>
-
-                <!-- Resumen de Costos en Vivo -->
-                <div class="bg-sand-50 p-4 rounded-2xl border border-sand-200 space-y-2">
-                    <div class="flex justify-between text-sm text-sand-600">
-                        <span id="nights-calc">5 noches x tarifa seleccionada</span>
-                        <span id="subtotal-price">$1,400 USD</span>
-                    </div>
-                    <div class="flex justify-between text-sm text-sand-600">
-                        <span>Impuestos y Tasas (10%)</span>
-                        <span id="tax-price">$140 USD</span>
-                    </div>
-                    <div class="pt-2 border-t border-sand-200 flex justify-between font-bold text-sand-900 text-lg">
-                        <span>Total Estimado</span>
-                        <span id="total-price" class="text-gold-600">$1,540 USD</span>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-sand-950 font-bold py-4 rounded-xl transition-all shadow-lg text-base">
-                    Confirmar Reserva Simulada
-                </button>
-            </form>
-        </div>
+<!-- Comodidades -->
+<section id="comodidades" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold">Comodidades de primer nivel</h2>
+      <div class="w-20 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+      <p class="text-sand-600 mt-4 text-base sm:text-lg">Cada detalle está pensado para su descanso y bienestar.</p>
     </div>
+    <div id="amenities" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"></div>
+  </div>
+</section>
 
-    <!-- MODAL DE MENSAJE DE ÉXITO -->
-    <div id="success-modal" class="fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl space-y-6">
-            <div class="w-16 h-16 bg-gold-100 text-gold-600 rounded-full flex items-center justify-center mx-auto">
-                <i data-lucide="check-circle" class="w-10 h-10"></i>
-            </div>
-            <div>
-                <h3 class="font-serif text-2xl font-bold text-sand-900 mb-2">¡Reserva Simulada con Éxito!</h3>
-                <p id="success-msg-desc" class="text-sand-600 text-sm leading-relaxed">Hemos enviado el voucher de confirmación a su correo electrónico. Este es un prototipo interactivo para demostración.</p>
-            </div>
-            <button onclick="closeSuccessModal()" class="w-full bg-sand-900 hover:bg-gold-500 hover:text-sand-950 text-white font-semibold py-3.5 rounded-xl transition-all text-sm">
-                Entendido
-            </button>
-        </div>
+<!-- Habitaciones -->
+<section id="habitaciones" class="py-16 sm:py-24 bg-sand-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold">Habitaciones y suites</h2>
+      <div class="w-20 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+      <p class="text-sand-600 mt-4 text-base sm:text-lg">Espacios amplios, diseño sobrio y amenidades de lujo.</p>
     </div>
+    <div id="filters" class="flex flex-wrap justify-center gap-2 mb-8 sm:mb-12" role="group" aria-label="Filtrar habitaciones"></div>
+    <div id="rooms" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
+  </div>
+</section>
 
+<!-- Experiencias -->
+<section id="experiencias" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold">Experiencias Grand Vista</h2>
+      <div class="w-20 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+      <p class="text-sand-600 mt-4 text-base sm:text-lg">Actividades exclusivas para descubrir el destino con total comodidad.</p>
+    </div>
+    <div id="exps" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+  </div>
+</section>
 
-    <!-- JavaScript de Interactividad -->
-    <script>
-        // Inicializar Lucide Icons
-        lucide.createIcons();
+<!-- Testimonios -->
+<section id="testimonios" class="py-16 sm:py-24 bg-sand-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold">Lo que dicen nuestros huéspedes</h2>
+      <div class="w-20 h-0.5 bg-gold-400 mx-auto mt-4"></div>
+    </div>
+    <div id="reviews" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+  </div>
+</section>
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-sand-950', 'shadow-xl');
-                navbar.classList.remove('bg-sand-900/80');
-            } else {
-                navbar.classList.remove('bg-sand-950', 'shadow-xl');
-                navbar.classList.add('bg-sand-900/80');
-            }
-        });
+<!-- FAQ -->
+<section id="faq" class="py-16 sm:py-24 bg-sand-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Preguntas frecuentes</h2>
+    <div id="faqs" class="space-y-3"></div>
+  </div>
+</section>
+</main>
 
-        // Menú Móvil
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<!-- Footer -->
+<footer id="contacto" class="bg-sand-950 text-sand-300 pt-14 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-2 mb-4 text-white"><i data-lucide="crown" class="w-7 h-7 text-gold-400"></i><span class="font-serif text-xl tracking-wider font-semibold">GRAND VISTA</span></div>
+        <p class="text-sm leading-relaxed mb-5 text-sand-400">Un refugio de lujo y tranquilidad pensado para los huéspedes más exigentes.</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-sand-800 flex items-center justify-center text-gold-300 hover:bg-gold-400 hover:text-sand-950"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-full bg-sand-800 flex items-center justify-center text-gold-300 hover:bg-gold-400 hover:text-sand-950"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-serif text-lg font-semibold mb-4 text-gold-300">Enlaces</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#comodidades" class="inline-block py-1.5 hover:text-gold-300">Comodidades</a></li>
+          <li><a href="#habitaciones" class="inline-block py-1.5 hover:text-gold-300">Habitaciones y suites</a></li>
+          <li><a href="#experiencias" class="inline-block py-1.5 hover:text-gold-300">Experiencias</a></li>
+          <li><a href="#faq" class="inline-block py-1.5 hover:text-gold-300">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-serif text-lg font-semibold mb-4 text-gold-300">Contacto</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-gold-400 shrink-0"></i><span>Ruta Panorámica Km 14.5, Valle Alto, Argentina</span></li>
+          <li><a href="tel:+5492615550192" class="flex gap-3 hover:text-gold-300"><i data-lucide="phone" class="w-5 h-5 text-gold-400 shrink-0"></i>+54 9 261 555-0192</a></li>
+          <li><a href="mailto:reservas@grandvistahotel.com" class="flex gap-3 hover:text-gold-300 break-all"><i data-lucide="mail" class="w-5 h-5 text-gold-400 shrink-0"></i>reservas@grandvistahotel.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-serif text-lg font-semibold mb-4 text-gold-300">Newsletter</h3>
+        <p class="text-sm mb-4 text-sand-400">Reciba beneficios privados y tarifas preferenciales.</p>
+        <form id="news-form" class="space-y-3 dark-field">
+          <label for="news-email" class="sr-only">Correo electrónico</label>
+          <input type="email" id="news-email" placeholder="Su correo electrónico" required class="w-full bg-sand-800 border border-white/20 rounded-xl px-4 py-3 text-base text-white placeholder:text-sand-400 focus:outline-none focus:border-gold-400">
+          <button type="submit" class="w-full bg-gold-400 hover:bg-gold-300 text-sand-950 font-bold py-3 rounded-xl text-sm min-h-[48px]">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10 text-xs text-sand-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 Grand Vista Hotel Boutique. Todos los derechos reservados.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-gold-300">Política de privacidad</a><a href="#" class="hover:text-gold-300">Términos y condiciones</a></div>
+    </div>
+  </div>
+</footer>
 
-        // Filtrado de Habitaciones
-        function filterRooms(category) {
-            const cards = document.querySelectorAll('.room-card');
-            const buttons = ['all', 'deluxe', 'superior', 'penthouse'];
-            
-            buttons.forEach(btn => {
-                const b = document.getElementById(`filter-btn-${btn}`);
-                if (btn === category) {
-                    b.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-sand-950 shadow-md";
-                } else {
-                    b.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-sand-700 hover:bg-sand-200 border border-sand-300";
-                }
-            });
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5492615550192?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20en%20Grand%20Vista" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" class="fixed z-30 right-4 w-14 h-14 rounded-full bg-[#1f8f4e] text-white shadow-xl flex items-center justify-center hover:bg-[#177a40]" style="bottom:calc(1rem + env(safe-area-inset-bottom,0px))">
+  <i data-lucide="message-circle" class="w-7 h-7"></i>
+</a>
 
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+<!-- Modal habitación -->
+<div id="room-modal" class="modal fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-end sm:items-center justify-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="rm-title">
+  <div class="sheet bg-white w-full max-w-2xl rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl relative max-h-[92dvh] overflow-y-auto">
+    <button onclick="closeModal('room-modal')" aria-label="Cerrar" class="absolute top-3 right-3 z-10 w-11 h-11 bg-sand-950/70 hover:bg-sand-950 text-white rounded-full flex items-center justify-center"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <div class="relative h-52 sm:h-72">
+      <img id="rm-img" src="" alt="" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-sand-950/85 to-transparent"></div>
+      <div class="absolute bottom-4 left-5 right-5 text-white">
+        <span id="rm-price" class="bg-gold-400 text-sand-950 text-xs font-bold px-3 py-1 rounded-full inline-block mb-2"></span>
+        <h3 id="rm-title" class="font-serif text-2xl sm:text-3xl font-bold"></h3>
+      </div>
+    </div>
+    <div class="p-5 sm:p-8">
+      <div id="rm-meta" class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-sand-600 mb-5 pb-5 border-b border-sand-200"></div>
+      <h4 class="font-serif font-bold text-lg mb-2">Incluye</h4>
+      <p id="rm-desc" class="text-sand-600 text-sm leading-relaxed mb-6"></p>
+      <div class="flex flex-col-reverse sm:flex-row gap-3">
+        <button onclick="closeModal('room-modal')" class="flex-1 bg-sand-100 hover:bg-sand-200 font-semibold py-3.5 rounded-xl text-sm min-h-[48px]">Cerrar</button>
+        <button id="rm-book" class="flex-1 bg-gold-400 hover:bg-gold-300 text-sand-950 font-bold py-3.5 rounded-xl text-sm min-h-[48px]">Reservar esta habitación</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // Modales
-        const bookingModal = document.getElementById('booking-modal');
-        const roomModal = document.getElementById('room-modal');
-        const successModal = document.getElementById('success-modal');
+<!-- Modal reserva -->
+<div id="booking-modal" class="modal fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-end sm:items-center justify-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="bk-title">
+  <div class="sheet bg-white w-full max-w-xl rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[94dvh] overflow-y-auto">
+    <div class="bg-sand-900 text-white p-5 sm:p-7 flex items-center justify-between sticky top-0 z-10">
+      <h3 id="bk-title" class="font-serif text-2xl font-bold">Reservar estadía</h3>
+      <button onclick="closeModal('booking-modal')" aria-label="Cerrar" class="w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <form id="bk-form" class="p-5 sm:p-7 space-y-5">
+      <div><label for="b-room" class="block text-xs font-bold text-sand-600 mb-1.5">Habitación o suite</label>
+        <select id="b-room" class="w-full bg-sand-50 border border-sand-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-gold-600"></select></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label for="b-in" class="block text-xs font-bold text-sand-600 mb-1.5">Llegada</label>
+          <input type="date" id="b-in" required class="w-full bg-sand-50 border border-sand-300 rounded-xl px-3 py-3 text-base focus:outline-none focus:border-gold-600"></div>
+        <div><label for="b-out" class="block text-xs font-bold text-sand-600 mb-1.5">Salida</label>
+          <input type="date" id="b-out" required class="w-full bg-sand-50 border border-sand-300 rounded-xl px-3 py-3 text-base focus:outline-none focus:border-gold-600"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div><label for="b-name" class="block text-xs font-bold text-sand-600 mb-1.5">Nombre del huésped</label>
+          <input type="text" id="b-name" autocomplete="name" placeholder="Ej. Juan Pérez" required class="w-full bg-sand-50 border border-sand-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-gold-600"></div>
+        <div><label for="b-guests" class="block text-xs font-bold text-sand-600 mb-1.5">Huéspedes</label>
+          <select id="b-guests" class="w-full bg-sand-50 border border-sand-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-gold-600">
+            <option value="1">1 huésped</option><option value="2">2 huéspedes</option><option value="3">3 huéspedes</option><option value="4">4 huéspedes</option></select></div>
+      </div>
+      <div><label for="b-email" class="block text-xs font-bold text-sand-600 mb-1.5">Correo electrónico</label>
+        <input type="email" id="b-email" autocomplete="email" placeholder="juan@ejemplo.com" required class="w-full bg-sand-50 border border-sand-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-gold-600"></div>
+      <div class="bg-sand-50 p-4 rounded-2xl border border-sand-200 space-y-2 text-sm text-sand-600" aria-live="polite">
+        <div class="flex justify-between"><span id="b-nights"></span><span id="b-sub"></span></div>
+        <div class="flex justify-between"><span>Impuestos y tasas (10%)</span><span id="b-tax"></span></div>
+        <div class="pt-2 border-t border-sand-200 flex justify-between font-bold text-sand-900 text-lg"><span>Total estimado</span><span id="b-total" class="text-gold-700"></span></div>
+      </div>
+      <button type="submit" class="w-full bg-gold-400 hover:bg-gold-300 text-sand-950 font-bold py-4 rounded-xl text-base min-h-[52px]">Solicitar reserva</button>
+    </form>
+  </div>
+</div>
 
-        function openBookingModal() {
-            bookingModal.classList.remove('hidden');
-            bookingModal.classList.add('flex');
-            calculateTotal();
-        }
+<!-- Modal mensaje -->
+<div id="msg-modal" class="modal fixed inset-0 z-50 bg-sand-950/80 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="sheet bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl space-y-5">
+    <div class="w-16 h-16 bg-gold-100 text-gold-700 rounded-full flex items-center justify-center mx-auto"><i data-lucide="check-circle" class="w-9 h-9"></i></div>
+    <div><h3 id="m-title" class="font-serif text-2xl font-bold mb-2"></h3><p id="m-text" class="text-sand-600 text-sm leading-relaxed"></p></div>
+    <a id="m-wa" href="#" target="_blank" rel="noopener" class="hidden w-full bg-[#1f8f4e] hover:bg-[#177a40] text-white font-bold py-3.5 rounded-xl text-sm items-center justify-center gap-2 min-h-[48px]"><i data-lucide="message-circle" class="w-4 h-4"></i>Enviar por WhatsApp</a>
+    <button onclick="closeModal('msg-modal')" class="w-full bg-sand-900 hover:bg-sand-800 text-white font-semibold py-3.5 rounded-xl text-sm min-h-[48px]">Cerrar</button>
+  </div>
+</div>
 
-        function closeBookingModal() {
-            bookingModal.classList.add('hidden');
-            bookingModal.classList.remove('flex');
-        }
+<script>
+const WA='5492615550192';
+const $=id=>document.getElementById(id);
+const money=n=>'$'+n.toLocaleString('en-US')+' USD';
+const ymd=d=>d.toLocaleDateString('en-CA');
+const plus=(s,n)=>{const d=new Date(s+'T12:00:00');d.setDate(d.getDate()+n);return ymd(d)};
+const today=ymd(new Date());
 
-        function selectRoomForBooking(roomName, price) {
-            const select = document.getElementById('book-room-select');
-            for(let i=0; i<select.options.length; i++) {
-                if(select.options[i].value == price) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-            openBookingModal();
-        }
+/* ---- Datos ---- */
+const perks=[['badge-percent','Mejor tarifa garantizada','Sin comisiones de intermediarios.'],['clock','Late check-out sujeto a disponibilidad','Pídalo al reservar.'],['gift','Detalle de bienvenida','Incluido en estadías directas.']];
+const amenities=[['sparkles','Spa y bienestar','Masajes, sauna finlandesa y tratamientos faciales con productos orgánicos locales.'],['waves','Piscina infinity climatizada','Temperatura controlada todo el año y vista directa al valle.'],['utensils','Gastronomía de autor','Restaurante del Chef Ejecutivo, con cava subterránea y vinos de altura.'],['wifi','Wi-Fi de alta velocidad','Conexión simétrica en todo el predio, ideal para trabajar.'],['car','Traslado privado al aeropuerto','Chofer bilingüe disponible las 24 horas con aviso previo.'],['shield-check','Conserjería 24/7','Atención a medida y organización de excursiones privadas.']];
+const rooms=[
+{c:'deluxe',n:'Suite Deluxe',t:'Suite Deluxe con vista al valle',p:280,m:'45 m²',g:'2 huéspedes',b:'King',s:'Balcón privado, tina de hidromasaje y cafetera Nespresso de cortesía.',d:'Balcón privado, hidromasaje, cafetera Nespresso, TV 4K de 65 pulgadas.',i:'photo-1591088398332-8a7791972843'},
+{c:'superior',n:'Doble Superior',t:'Habitación Doble Superior',p:190,m:'32 m²',g:'2 huéspedes',b:'Queen',s:'Maderas nobles, escritorio ergonómico y baño en mármol.',d:'Escritorio ergonómico, baño de mármol, amenities orgánicos, vista al jardín.',i:'photo-1566665797739-1674de7a421a'},
+{c:'penthouse',n:'Penthouse Imperial',t:'Penthouse Imperial',p:520,m:'95 m²',g:'4 huéspedes',b:'2 King',s:'Terraza privada con jacuzzi exterior, living integrado y mayordomo personal.',d:'Terraza con jacuzzi exterior, sala de estar, mayordomo dedicado, vinos de bienvenida.',i:'photo-1631049307264-da0ec9d70304'}];
+const exps=[['Enología','Cata privada en la cava','Degustación guiada por nuestro sommelier con etiquetas de reserva exclusiva.','photo-1510812431401-41d2bd2722f3'],['Aventura','Trekking y picnic en la montaña','Excursión privada con guía especializado y almuerzo gourmet en paisajes vírgenes.','photo-1506744038136-46273834b3fb'],['Bienestar','Yoga al amanecer','Sesiones privadas frente al valle para renovar cuerpo y mente.','photo-1544161515-4ab6ce6db874']];
+const reviews=[['Carlos M.','Buenos Aires, Argentina','Una experiencia excepcional. La conserjería superó nuestras expectativas y la vista desde la Suite Deluxe es inolvidable.'],['Sofía L.','Santiago, Chile','El spa y la piscina infinity son de otro nivel. La comida del restaurante es internacional. Volveremos sin dudas.'],['Federico R.','Madrid, España','Ideal para desconectar. La atención al detalle es impecable y la paz del lugar es absoluta. 10 de 10.']];
+const faqs=[['¿Cuáles son los horarios de check-in y check-out?','Check-in desde las 15:00 y check-out hasta las 11:00. Consulte por late check-out según disponibilidad.'],['¿Puedo cancelar o modificar mi reserva?','Sí. Escríbanos por WhatsApp o correo y le informamos las condiciones vigentes para sus fechas.'],['¿Admiten mascotas o niños?','Recibimos a familias con niños. Para mascotas, consúltenos antes de reservar.'],['¿Cómo llego al hotel?','Estamos en la Ruta Panorámica Km 14.5. Ofrecemos traslado privado desde el aeropuerto con aviso previo.']];
 
-        function openRoomDetails(title, price, size, guests, desc, img) {
-            document.getElementById('modal-room-title').innerText = title;
-            document.getElementById('modal-room-price').innerText = `$${price} USD / noche`;
-            document.getElementById('modal-room-size').innerText = size;
-            document.getElementById('modal-room-guests').innerText = guests;
-            document.getElementById('modal-room-desc').innerText = desc;
-            document.getElementById('modal-room-img').src = img;
+/* ---- Render ---- */
+const img=(id,w)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
+$('perks').innerHTML=perks.map(p=>`<li class="flex items-start gap-3"><i data-lucide="${p[0]}" class="w-6 h-6 text-gold-300 shrink-0 mt-0.5"></i><div><p class="font-semibold">${p[1]}</p><p class="text-sm text-sand-300">${p[2]}</p></div></li>`).join('');
+$('amenities').innerHTML=amenities.map(a=>`<div class="bg-sand-50 p-6 sm:p-8 rounded-2xl border border-sand-200"><div class="w-12 h-12 bg-gold-100 rounded-xl flex items-center justify-center text-gold-700 mb-4"><i data-lucide="${a[0]}" class="w-6 h-6"></i></div><h3 class="font-serif text-xl font-bold mb-2">${a[1]}</h3><p class="text-sand-600 text-sm leading-relaxed">${a[2]}</p></div>`).join('');
+$('rooms').innerHTML=rooms.map((r,i)=>`<article class="room-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-sm flex flex-col" data-c="${r.c}">
+<div class="relative h-56 sm:h-64 bg-sand-200"><img src="${img(r.i,800)}" alt="${r.t}" loading="lazy" class="w-full h-full object-cover"><span class="absolute top-3 right-3 bg-sand-950/90 text-white text-xs px-3 py-1.5 rounded-full font-semibold">${money(r.p)} / noche</span></div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+<div><div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-sand-600 mb-2"><span class="flex items-center gap-1"><i data-lucide="maximize" class="w-3.5 h-3.5"></i>${r.m}</span><span class="flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5"></i>${r.g}</span><span class="flex items-center gap-1"><i data-lucide="bed" class="w-3.5 h-3.5"></i>${r.b}</span></div>
+<h3 class="font-serif text-2xl font-bold mb-2">${r.t}</h3><p class="text-sand-600 text-sm leading-relaxed mb-5">${r.s}</p></div>
+<div class="flex items-center justify-between pt-4 border-t border-sand-200 gap-3">
+<button onclick="openRoom(${i})" class="text-gold-700 hover:text-gold-800 font-semibold text-sm flex items-center gap-1 min-h-[44px]">Ver detalles <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+<button onclick="openBooking(${i})" class="bg-sand-900 hover:bg-gold-400 hover:text-sand-950 text-white text-sm font-semibold px-5 py-2.5 rounded-xl min-h-[44px]">Reservar</button></div></div></article>`).join('');
+$('exps').innerHTML=exps.map(e=>`<article class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-lg bg-sand-900"><img src="${img(e[3],800)}" alt="${e[1]}" loading="lazy" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-sand-950 via-sand-950/60 to-transparent"></div><div class="absolute bottom-0 inset-x-0 p-6 sm:p-8 text-white"><p class="text-gold-300 text-sm font-semibold">${e[0]}</p><h3 class="font-serif text-2xl font-bold mt-1 mb-2">${e[1]}</h3><p class="text-sand-100 text-sm">${e[2]}</p></div></article>`).join('');
+$('reviews').innerHTML=reviews.map(r=>`<figure class="bg-sand-800 p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between"><div><div class="flex gap-1 text-gold-300 mb-4" role="img" aria-label="5 de 5 estrellas">${'<i data-lucide="star" class="w-4 h-4 fill-current"></i>'.repeat(5)}</div><blockquote class="text-sand-100 text-sm leading-relaxed mb-6">“${r[2]}”</blockquote></div><figcaption class="flex items-center gap-3 pt-4 border-t border-white/10"><span class="w-11 h-11 bg-gold-400 rounded-full flex items-center justify-center font-serif font-bold text-sand-950">${r[0].split(' ').map(w=>w[0]).join('')}</span><span><span class="block font-semibold">${r[0]}</span><span class="text-xs text-gold-200">${r[1]}</span></span></figcaption></figure>`).join('');
+$('faqs').innerHTML=faqs.map(f=>`<details class="bg-white border border-sand-200 rounded-xl"><summary class="cursor-pointer px-5 py-4 font-semibold flex items-center justify-between gap-4 min-h-[56px]">${f[0]}<i data-lucide="chevron-down" class="chev w-5 h-5 text-gold-700 shrink-0 transition-transform"></i></summary><p class="px-5 pb-5 text-sm text-sand-600 leading-relaxed">${f[1]}</p></details>`).join('');
+$('b-room').innerHTML=rooms.map((r,i)=>`<option value="${i}">${r.t} (${money(r.p)} / noche)</option>`).join('');
+const cats=[['all','Todas'],['deluxe','Suite Deluxe'],['superior','Doble Superior'],['penthouse','Penthouse']];
+function filterRooms(c){
+  document.querySelectorAll('#filters button').forEach(b=>{const on=b.dataset.c===c;b.setAttribute('aria-pressed',on);b.className='px-5 py-2.5 rounded-full text-sm font-semibold min-h-[44px] border '+(on?'bg-gold-400 border-gold-400 text-sand-950':'bg-white border-sand-300 text-sand-700 hover:bg-sand-200')});
+  document.querySelectorAll('.room-card').forEach(k=>k.style.display=(c==='all'||k.dataset.c===c)?'flex':'none');
+}
+$('filters').innerHTML=cats.map(c=>`<button data-c="${c[0]}" onclick="filterRooms('${c[0]}')">${c[1]}</button>`).join('');
+filterRooms('all');
+lucide.createIcons();
 
-            roomModal.classList.remove('hidden');
-            roomModal.classList.add('flex');
-        }
+/* ---- Menú móvil ---- */
+const mb=$('menu-btn'),mm=$('mobile-menu');
+const setMenu=o=>{mm.classList.toggle('hidden',!o);mb.setAttribute('aria-expanded',o)};
+mb.onclick=()=>setMenu(mm.classList.contains('hidden'));
+mm.querySelectorAll('a').forEach(a=>a.onclick=()=>setMenu(false));
 
-        function closeRoomModal() {
-            roomModal.classList.add('hidden');
-            roomModal.classList.remove('flex');
-        }
+/* ---- Modales ---- */
+function openModal(id){const m=$(id);m.classList.remove('hidden');m.classList.add('flex');document.body.style.overflow='hidden'}
+function closeModal(id){const m=$(id);m.classList.add('hidden');m.classList.remove('flex');if(!document.querySelector('.modal.flex'))document.body.style.overflow=''}
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id)}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.flex').forEach(m=>closeModal(m.id))});
 
-        function bookFromModal() {
-            closeRoomModal();
-            openBookingModal();
-        }
+function openRoom(i){
+  const r=rooms[i];
+  $('rm-img').src=img(r.i,900);$('rm-img').alt=r.t;$('rm-title').textContent=r.t;$('rm-price').textContent=money(r.p)+' / noche';
+  $('rm-meta').innerHTML=[['maximize',r.m],['users',r.g],['bed','Cama '+r.b]].map(x=>`<span class="flex items-center gap-2"><i data-lucide="${x[0]}" class="w-4 h-4 text-gold-700"></i>${x[1]}</span>`).join('');
+  $('rm-desc').textContent=r.d;
+  $('rm-book').onclick=()=>{closeModal('room-modal');openBooking(i)};
+  lucide.createIcons();openModal('room-modal');
+}
 
-        // Cálculo Dinámico de Reserva
-        function calculateTotal() {
-            const pricePerNight = parseFloat(document.getElementById('book-room-select').value);
-            const checkIn = new Date(document.getElementById('check-in-date').value);
-            const checkOut = new Date(document.getElementById('check-out-date').value);
-            
-            let diffTime = checkOut - checkIn;
-            let nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            if(isNaN(nights) || nights <= 0) nights = 1;
+/* ---- Reserva ---- */
+const nightsOf=()=>Math.max(1,Math.round((new Date($('b-out').value)-new Date($('b-in').value))/864e5)||1);
+function calc(){
+  const r=rooms[+$('b-room').value],n=nightsOf(),sub=n*r.p,tax=sub*.1;
+  $('b-nights').textContent=`${n} noche${n>1?'s':''} × ${money(r.p)}`;
+  $('b-sub').textContent=money(sub);$('b-tax').textContent=money(tax);$('b-total').textContent=money(sub+tax);
+}
+function openBooking(i){
+  if(typeof i==='number')$('b-room').value=i;
+  const hi=$('h-in').value,ho=$('h-out').value;
+  if(hi&&ho&&ho>hi){$('b-in').value=hi;$('b-out').value=ho}
+  $('b-guests').value=$('h-guests').value;
+  $('b-in').min=today;$('b-out').min=plus($('b-in').value,1);
+  calc();openModal('booking-modal');
+}
+$('b-in').onchange=()=>{const m=plus($('b-in').value,1);$('b-out').min=m;if($('b-out').value<m)$('b-out').value=m;calc()};
+$('b-out').onchange=calc;$('b-room').onchange=calc;
 
-            const subtotal = nights * pricePerNight;
-            const tax = subtotal * 0.10;
-            const total = subtotal + tax;
+$('h-in').value=plus(today,7);$('h-out').value=plus(today,12);
+$('h-in').min=today;$('h-out').min=plus($('h-in').value,1);
+$('h-in').onchange=()=>{const m=plus($('h-in').value,1);$('h-out').min=m;if($('h-out').value<m)$('h-out').value=m};
+$('hero-form').onsubmit=e=>{e.preventDefault();openBooking()};
+$('b-in').value=$('h-in').value;$('b-out').value=$('h-out').value;
 
-            document.getElementById('nights-calc').innerText = `${nights} noche${nights > 1 ? 's' : ''} x $${pricePerNight}`;
-            document.getElementById('subtotal-price').innerText = `$${subtotal.toLocaleString()} USD`;
-            document.getElementById('tax-price').innerText = `$${tax.toLocaleString()} USD`;
-            document.getElementById('total-price').innerText = `$${total.toLocaleString()} USD`;
-        }
-
-        function handleBookingSubmit(event) {
-            event.preventDefault();
-            const guestName = document.getElementById('guest-name').value;
-            closeBookingModal();
-            document.getElementById('success-msg-desc').innerText = `Estimado/a ${guestName}, su reserva simulada ha sido procesada con éxito. Le hemos enviado los detalles al correo indicado.`;
-            successModal.classList.remove('hidden');
-            successModal.classList.add('flex');
-        }
-
-        function subscribeNewsletter(event) {
-            event.preventDefault();
-            const email = document.getElementById('newsletter-email').value;
-            document.getElementById('success-msg-desc').innerText = `¡Gracias por suscribirse con el correo ${email}! Ya forma parte de nuestro círculo preferencial.`;
-            successModal.classList.remove('hidden');
-            successModal.classList.add('flex');
-            document.getElementById('newsletter-email').value = '';
-        }
-
-        function closeSuccessModal() {
-            successModal.classList.add('hidden');
-            successModal.classList.remove('flex');
-        }
-    </script>
+function showMsg(t,x,link){
+  $('m-title').textContent=t;$('m-text').textContent=x;
+  const w=$('m-wa');if(link){w.href=link;w.classList.remove('hidden');w.classList.add('flex')}else{w.classList.add('hidden');w.classList.remove('flex')}
+  openModal('msg-modal');
+}
+$('bk-form').onsubmit=e=>{
+  e.preventDefault();
+  const r=rooms[+$('b-room').value],n=nightsOf(),name=$('b-name').value.trim();
+  const txt=`Hola, soy ${name}. Quisiera reservar ${r.t} del ${$('b-in').value} al ${$('b-out').value} (${n} noche${n>1?'s':''}) para ${$('b-guests').value} huésped(es). Total estimado: ${$('b-total').textContent}. Mi correo: ${$('b-email').value}.`;
+  closeModal('booking-modal');
+  showMsg('Solicitud lista, '+name.split(' ')[0],'Envíela por WhatsApp para que nuestro equipo confirme disponibilidad y le responda a la brevedad. Este monto es un estimado.',`https://wa.me/${WA}?text=${encodeURIComponent(txt)}`);
+  e.target.reset();$('h-in').onchange();
+  $('b-in').value=$('h-in').value;$('b-out').value=$('h-out').value;
+};
+$('news-form').onsubmit=e=>{e.preventDefault();showMsg('¡Gracias por suscribirse!',`Enviaremos nuestras novedades a ${$('news-email').value}.`);e.target.reset()};
+</script>
 </body>
 </html>
